@@ -12,11 +12,6 @@ test.afterEach(t => {
   t.context.clock.restore()
 })
 
-test('foo', t => {
-  const someDate = new Date(2014, 8 /* Sep */, 25, 14, 30, 45, 500)
-  t.deepEqual(new Date(), someDate)
-})
-
 const map = new Map([
   ['2010', new Date(2010, 0, 1)],
   ['2010-05', new Date(2010, 4, 1)],
@@ -28,7 +23,7 @@ const map = new Map([
   ['05.25.2010', new Date(2010, 4, 25)],
   ['25 May 2010', new Date(2010, 4, 25)],
   ['May 2010', new Date(2010, 4, 1)],
-  ['Tuesday May 25th 2010', new Date(2010, 4, 1)],
+  ['Tuesday May 25th 2010', new Date(2010, 4, 25)],
   ['the day after tomorrow', new Date(2014, 8, 27)],
   ['one day before yesterday', new Date(2014, 8, 23)],
   ['2 days after Monday', new Date(2014, 8, 24)],
@@ -37,7 +32,7 @@ const map = new Map([
   ['25 years from now', new Date(2039, 8, 25, 14, 30, 45, 500)],
   ['last Wednesday', new Date(2014, 8, 17)],
   ['next Friday', new Date(2014, 9, 3)],
-  ['this week Tuesday', new Date(2014, 8, 25)],
+  ['this week Tuesday', new Date(2014, 8, 23)],
   ['Monday of last week', new Date(2014, 8, 15)],
   ['May 25th of next year', new Date(2015, 4, 25)],
   ['the last day of March', new Date(2014, 2, 31)],
@@ -58,4 +53,3 @@ for (let [key, value] of map) {
     t.deepEqual(result, value)
   })
 }
-

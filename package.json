@@ -7,17 +7,22 @@
   "repository": "https://github.com/LeshaKoss/parse-date-fns.git",
   "main": "index.js",
   "dependencies": {
-    "date-fns": "^1.0.0-rc21"
+    "date-fns": "^1.2.0"
   },
   "devDependencies": {
     "ava": "^0.14.0",
     "babel-eslint": "^6.0.4",
+    "babel-plugin-transform-class-properties": "^6.8.0",
+    "babel-plugin-transform-export-extensions": "^6.8.0",
+    "babel-plugin-transform-object-rest-spread": "^6.8.0",
     "sinon": "^1.17.4",
     "snazzy": "^4.0.0",
     "standard": "^7.0.1"
   },
   "scripts": {
-    "test": "ava --verbose",
+    "start": "babel-node index.js",
+    "pratt": "babel-node pratt.js",
+    "test": "ava",
     "lint": "standard --verbose | snazzy"
   },
   "ava": {
@@ -28,6 +33,11 @@
   "babel": {
     "presets": [
       "es2015"
+    ],
+    "plugins": [
+      "transform-class-properties",
+      "transform-object-rest-spread",
+      "transform-export-extensions"
     ]
   },
   "standard": {
